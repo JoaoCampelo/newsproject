@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  </br>
+  <h2>Ultimas Avaliações</h2>
+  </br>
+  <section class="features-icons bg-white text-center">
+    <div class="container">
+      <div class="row">
+        {% for noticia in noticias %}
+          <div class="col-sm-3">
+            <a href = "noticia/{{noticia.idnoticias}}">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-screen-desktop m-auto text-primary"></i>
+              </div>
+              {% if noticia.urlimagem %}
+                <img src="{{noticia.urlimagem}}" class="media-object  img-responsive img-thumbnail">
+              {% else %}
+                <img src="http://www.adbazar.pk/frontend/images/default-image.jpg" class="media-object  img-responsive img-thumbnail">
+              {% endif %}
+              <p class="lead mb-0"> {{noticia.titulo}} </p>
+            </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

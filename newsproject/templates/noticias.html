@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  </br>
+  <h1>Notícias</h1>
+  </br>
+  <section class="features-icons bg-white text-center">
+    <div class="container">
+      <div class="row">
+        {% for noticia in noticias %}
+          <div class="col-sm-3">
+            <a href = "noticia/{{noticia.idnoticias}}">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-screen-desktop m-auto text-primary"></i>
+              </div>
+              {% if noticia.urlimagem %}
+                <img src="{{noticia.urlimagem}}" class="media-object  img-responsive img-thumbnail">
+              {% else %}
+                <img src="http://www.adbazar.pk/frontend/images/default-image.jpg" class="media-object  img-responsive img-thumbnail">
+              {% endif %}
+              <p class="lead mb-0"> {{noticia.titulo}} </p>
+            </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        {% if bloackAnt == 0 %}
+          <li class="page-item disabled">
+            <a class="page-link" href="{{pageAnt}}" tabindex="-1">Previous</a>
+          </li>
+        {% else %}
+          <li class="page-item">
+            <a class="page-link" href="{{pageAnt}}" tabindex="-1">Previous</a>
+          </li>
+        {% endif %}
+
+        {% if blockProx > pages %}
+          <li class="page-item disabled">
+            <a class="page-link" href="{{pageProx}}" tabindex="-1">Next</a>
+          </li>
+        {% else %}
+          <li class="page-item">
+            <a class="page-link" href="{{pageProx}}" tabindex="-1">Next</a>
+          </li>
+        {% endif %}
+
+      </ul>
+    </nav>
+  </section>
+{% endblock %}

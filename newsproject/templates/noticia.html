@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  </br>
+  <h1>{{noticia.titulo}}</h1>
+  <small><b>Autor:</b> {{noticia.autor}} / <b>Fonte:</b> {{noticia.fonte}}</small> </br>
+  <small><b>Publicado em:</b> {{noticia.datapublicacao}}</small>
+  <hr>
+  <div align="center">
+    {% if noticia.urlimagem %}
+      <img src="{{noticia.urlimagem}}" class="media-object  img-responsive img-thumbnail">
+    {% else %}
+      <img src="http://www.adbazar.pk/frontend/images/default-image.jpg"  class="media-object  img-responsive img-thumbnail">
+    {% endif %}
+  </div></br>
+  <div>
+    {{noticia.descricao | safe}}
+    </br></br>
+    <p><b>Pode ler a noticia completa em:</b> <a href = "{{noticia.urlnoticia}}" target="_blank">{{noticia.fonte}}</a><p>
+    <p><b>Avaliação:</b> {{verdade}} % de verdade<p>
+    </br>
+    <p><u>Pontos avaliados</u> (Pode usar estes pontos para fazer a sua própria analise) :<p>
+    <p>Data de publicação --> Se foi publicada á mais ou menos do que 31 dias<p>
+    <p>Relação entre os resultados devolvidos pela API e as noticias aceites para comparação<p>
+    <p>Media de semelhança com as noticias comparadas<p>
+    <p>Autor --> Existe ou não<p>
+    <p>Fonte --> Existe ou não<p>
+    <p>Imagem --> Existe ou não<p>
+  </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">News Project</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="nav navbar-nav">
+        <li> <a class="nav-link" href="/">Inicio</a> </li>
+        <li> <a class="nav-link" href="/noticias?page=1">Notícias</a> </li>
+        <li> <a class="nav-link" href="/about">Sobre</a> </li>
+      </ul>
+      <ul class="nav navbar-nav ml-auto">
+        {% if session.logged_in %}
+          <li> <a class="nav-link" href="/avaliarNoticias">Avaliar Noticias</a> </li>
+          {% if session.privilegios == 1 %}
+          <li> <a class="nav-link" href="/dashboard">Dashboard</a> </li>
+          {% endif %}
+          <li> <a class="nav-link" href="/logout">Logout</a> </li>
+        {% else %}
+          <li> <a class="nav-link" href="/login">Login</a> </li>
+          <li> <a class="nav-link" href="/register">Registar</a> </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  </br>
+  <h1>Utilizadores</h1>
+
+  <hr>
+
+  <table class = "table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Privilegios</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for user in users %}
+      <tr>
+        <th>{{user.id}}</th>
+        <th>{{user.nome}}</th>
+        <th>{{user.email}}</th>
+        <th>
+          {% if user.privilegios == 0 %}
+            <p>Utilizador Normal</p>
+          {% else %}
+            <p>Administrador</p>
+          {% endif %}
+        </th>
+        <th>
+          <form action="{{url_for('eliminar_utilizador', id=user.id)}}" method="post">
+            <input type='hidden' name='_method' value='DELETE'>
+            <input type='submit' value='Delete' class='btn btn-danger'>
+          </form>
+        </th>
+      </tr>
+    {% endfor %}
+  </table>
+
+{% endblock %}

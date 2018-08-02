@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  </br>
+  <h1>Dashboard <h5>Bem Vindo {{session.username}}</h5></h1>
+
+  <hr>
+
+
+  <section class="features-icons bg-white text-center">
+    <div class="container">
+      <div class="row">
+          <div class="col-sm-4">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+              <h4>Utilizadores</h4>
+              <img src="https://www.breaktudo.com/wp-content/uploads/2017/07/dicas-para-seu-site-ter-mais-acessos-veja.png"class="media-object  img-responsive img-thumbnail">
+              </br>
+              <a class = "btn btn-default" href = "utilizadores">Eliminar</a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
